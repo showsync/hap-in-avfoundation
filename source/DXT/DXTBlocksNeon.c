@@ -1,5 +1,5 @@
 /*
- DXTBlocks.h
+ DXTBlocksNeon.c
  Hap Codec
  
  Copyright (c) 2012-2013, Tom Butterworth and Vidvox LLC. All rights reserved.
@@ -25,20 +25,31 @@
  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef Hap_Codec_DXTBlocks_h
-#define Hap_Codec_DXTBlocks_h
+#include "DXTBlocks.h"
 
-#include "HapPlatform.h"
-#include <stdint.h>
+#if defined(__APPLE__) && (defined (__arm__) || defined (__arm64__))
 
-void HapCodecDXTReadBlockRGBA(const uint8_t *copy_src, uint8_t *copy_dst, unsigned int src_bytes_per_row);
+#include <arm_neon.h>
 
-#if !defined(HAP_SSSE3_ALWAYS_AVAILABLE)
-int HapCodecHasSSSE3(void);
-void HapCodecDXTReadBlockBGRAScalar(const uint8_t *copy_src, uint8_t *copy_dst, unsigned int src_bytes_per_row);
-#endif
+void HapCodecDXTReadBlockBGRANeon(const uint8_t *copy_src, uint8_t *copy_dst, unsigned int src_bytes_per_row)
+{
+    int y;
+    uint8x16_t a;
+    
+    const uint8_t uint8_data[] = {0x0F, 0x0C, 0x0D, 0x0E, 0x0B, 0x08, 0x09, 0x0A, 0x07, 0x04, 0x05, 0x06, 0x03, 0x00, 0x01, 0x02};
+    const uint8x16_t mask = vld1q_u8(uint8_data);
 
-void HapCodecDXTReadBlockBGRASSSE3(const uint8_t *copy_src, uint8_t *copy_dst, unsigned int src_bytes_per_row);
-void HapCodecDXTReadBlockBGRANeon(const uint8_t *copy_src, uint8_t *copy_dst, unsigned int src_bytes_per_row);
+    for (y = 0; y < 4; y++)
+    {
+        a = vld1q_s8((const signed char *)copy_src);
+        vst1q_s8((signed char *)copy_dst, vqtbl1q_u8(a, mask));
+        copy_src += src_bytes_per_row;
+        copy_dst += 16;
+    }
+}
+
+#else
+
+void HapCodecDXTReadBlockBGRANeon(const uint8_t *copy_src, uint8_t *copy_dst, unsigned int src_bytes_per_row){}
 
 #endif

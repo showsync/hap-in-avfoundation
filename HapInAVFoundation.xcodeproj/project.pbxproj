@@ -169,6 +169,8 @@
 		84C83736242A79B000734A42 /* HapMetalPixelBufferTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C8372B242A79B000734A42 /* HapMetalPixelBufferTexture.m */; };
 		84C83737242A79B000734A42 /* MetalHapDisplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C8372C242A79B000734A42 /* MetalHapDisplayer.m */; };
 		84C83738242A79B000734A42 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 84C8372D242A79B000734A42 /* Shaders.metal */; };
+		CB78072E255B43A70010D2AB /* DXTBlocksNeon.c in Sources */ = {isa = PBXBuildFile; fileRef = CB78072D255B43A70010D2AB /* DXTBlocksNeon.c */; };
+		CB78072F255B43A70010D2AB /* DXTBlocksNeon.c in Sources */ = {isa = PBXBuildFile; fileRef = CB78072D255B43A70010D2AB /* DXTBlocksNeon.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -416,6 +418,7 @@
 		84C83731242A79B000734A42 /* MetalHapDisplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetalHapDisplayer.h; sourceTree = "<group>"; };
 		84C83732242A79B000734A42 /* HapMetalPixelBufferTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HapMetalPixelBufferTexture.h; sourceTree = "<group>"; };
 		84F6F9362418F9D600E1C63D /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		CB78072D255B43A70010D2AB /* DXTBlocksNeon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = DXTBlocksNeon.c; path = source/DXT/DXTBlocksNeon.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -498,6 +501,7 @@
 			children = (
 				1A0535FD1A38CA11005B47BD /* DXTBlocks.c */,
 				1A0535FE1A38CA11005B47BD /* DXTBlocks.h */,
+				CB78072D255B43A70010D2AB /* DXTBlocksNeon.c */,
 				1A0535FF1A38CA11005B47BD /* DXTBlocksSSSE3.c */,
 				1A0536001A38CA11005B47BD /* DXTEncoder.h */,
 				1A0536011A38CA11005B47BD /* GLDXTEncoder.c */,
@@ -1116,6 +1120,7 @@
 				1A6D0E66207E49C9005CCB1A /* YCoCgDXT.cpp in Sources */,
 				1A6D0E52207E49B7005CCB1A /* HapEncoderFrame.m in Sources */,
 				1A6D0E56207E49B7005CCB1A /* Utility.c in Sources */,
+				CB78072F255B43A70010D2AB /* DXTBlocksNeon.c in Sources */,
 				1A6D0E48207E49B1005CCB1A /* AVPlayerItemAdditions.m in Sources */,
 				1A6D0E68207E49C9005CCB1A /* YCoCgDXTEncoder.c in Sources */,
 				1A6D0E44207E49B1005CCB1A /* AVAssetReaderHapTrackOutput.m in Sources */,
@@ -1146,6 +1151,7 @@
 				1A0536151A38CA11005B47BD /* YCoCgDXT.cpp in Sources */,
 				1AC0CA1A1A437C2A00A9BC2C /* HapEncoderFrame.m in Sources */,
 				1AB1C99F1A38CAFA00688AB4 /* Utility.c in Sources */,
+				CB78072E255B43A70010D2AB /* DXTBlocksNeon.c in Sources */,
 				1AB26EF61A3B59D5001360D7 /* AVPlayerItemAdditions.m in Sources */,
 				1A0536171A38CA11005B47BD /* YCoCgDXTEncoder.c in Sources */,
 				1A4A76B01A55AFCC0060CBAC /* AVAssetReaderHapTrackOutput.m in Sources */,

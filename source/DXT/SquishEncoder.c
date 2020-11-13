@@ -151,7 +151,7 @@ static int HapCodecSquishEncoderEncode(HapCodecDXTEncoderRef encoder,
                     else HapCodecDXTReadBlockBGRAScalar(copy_src, copy_dst, src_bytes_per_row);
 #endif
 #else
-                    HapCodecDXTReadBlockBGRAScalar(copy_src, copy_dst, src_bytes_per_row);
+                    HapCodecDXTReadBlockBGRANeon(copy_src, copy_dst, src_bytes_per_row);
 #endif
                     
                 }
